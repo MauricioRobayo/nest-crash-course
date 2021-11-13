@@ -9,6 +9,7 @@ import {
   ParseIntPipe,
 } from '@nestjs/common';
 import {
+  ApiBadRequestResponse,
   ApiCreatedResponse,
   ApiNotFoundResponse,
   ApiOkResponse,
@@ -44,6 +45,7 @@ export class UsersController {
     return user;
   }
 
+  @ApiBadRequestResponse()
   @ApiCreatedResponse({ type: User })
   @Post()
   createUser(@Body() body: CreateUserDto): User {
