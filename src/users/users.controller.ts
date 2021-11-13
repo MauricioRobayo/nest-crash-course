@@ -16,8 +16,8 @@ import {
   ApiQuery,
   ApiTags,
 } from '@nestjs/swagger';
-import { CreateUserDto } from 'src/dto/create-user.dto';
-import { User } from 'src/entities/user.entity';
+import { CreateUserDto } from 'src/users/dto/create-user.dto';
+import { User } from 'src/users/entities/user.entity';
 import { UsersService } from './users.service';
 
 @ApiTags('users')
