@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { nanoid } from 'nanoid';
 import { CreateUserDto } from 'src/dto/create-user.dto';
 import { User } from 'src/entities/user.entity';
 
@@ -16,13 +15,13 @@ export class UsersService {
     return this.users;
   }
 
-  public findOne(id: string): User | undefined {
+  public findOne(id: number): User | undefined {
     return this.users.find((user) => user.id === id);
   }
 
   public create(user: CreateUserDto): User {
     const newUser = {
-      id: nanoid(),
+      id: Date.now(),
       ...user,
     };
     this.users.push(newUser);
