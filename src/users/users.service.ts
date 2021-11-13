@@ -7,11 +7,16 @@ import { User } from 'src/entities/user.entity';
 export class UsersService {
   private users: User[] = [];
 
-  public findAll(): User[] {
+  public findAll(name: string): User[] {
+    if (name) {
+      return this.users.filter((user) =>
+        user.name.toLocaleLowerCase().includes(name.toLocaleLowerCase()),
+      );
+    }
     return this.users;
   }
 
-  public findOne(id: string): User {
+  public findOne(id: string): User | undefined {
     return this.users.find((user) => user.id === id);
   }
 
